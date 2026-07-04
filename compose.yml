@@ -1,0 +1,51 @@
+---
+services:
+  db:
+    image: sriramk16/pyapp:db
+    ports:
+      - "3306:3306"
+    deploy:
+      replicas: 1
+    networks:
+      - pynet
+    volumes:
+      - dbvol
+
+  auth:
+    image: sriramk16/pyapp:auth
+    ports:
+      - "5001:5001"
+    deploy:
+      replicas: 1
+    networks:
+      - pynet
+  book:
+    image: sriramk16/pyapp:book
+    ports:
+      - "5002:5002"
+    deploy:
+      replicas: 1
+    networks:
+      - pynet
+  borrow:
+    image: sriramk16/pyapp:borrow
+    ports:
+      - "5003:5003"
+    deploy:
+      replicas: 1
+    networks:
+      - pynet
+  frontend:
+    image: sriramk16/pyapp:front
+    ports:
+      - "5000:5000"
+    deploy:
+      replicas: 1
+    networks:
+      - pynet
+
+volume:
+  - dbvol
+networks:
+  pynet:
+    driver: overlay
