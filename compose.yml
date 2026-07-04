@@ -45,7 +45,7 @@ services:
       - pynet
 
 volume:
-  - dbvol
+  dbvol:
 networks:
   pynet:
     driver: overlay
