@@ -8,7 +8,7 @@ services:
       replicas: 1
     networks:
       - pynet
-    volume:
+    volumes:
       - dbvol:/var/lib/mysql
 
   auth:
