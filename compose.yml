@@ -8,8 +8,8 @@ services:
       replicas: 1
     networks:
       - pynet
-    volumes:
-      - dbvol
+    volume:
+      - dbvol:/var/lib/mysql
 
   auth:
     image: sriramk16/pyapp:auth
@@ -44,7 +44,7 @@ services:
     networks:
       - pynet
 
-volume:
+volumes:
   dbvol:
 networks:
   pynet:
